@@ -1,8 +1,12 @@
 <style>
+    
     *{
-        text-shadow: 0 0px 10px rgb(0 0 0 / 0.2);
+        color: white;
+        background-color: black;
+        text-shadow: 0 0px 10px rgba(255, 255, 255, 0.2);
         font-family: 'Poppins', sans-serif;
     }
+
 
     html body{
         position: absolute;
@@ -20,16 +24,17 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Count Down 2022</title>
+    <title>Count Down 2023</title>
 </head>
 <body>
-<h1 class="title">Count Down 2022</h1>
+<h1 class="title" id="title">Count Down 2023</h1>
 <h1 class="count" id="count"></h1>
 </body>
 </html>
+
 <script>
 
-var countDownDate = new Date("jan 1, 2022 0:0:0").getTime();
+var countDownDate = new Date("jan 1, 2023 0:0:0").getTime();
 
 var x = setInterval(function() {
 
@@ -44,7 +49,21 @@ var x = setInterval(function() {
     
   if (distance < 0) {
     clearInterval(x);
+    document.body.style.backgroundColor = "black";
+    document.getElementById("title").innerHTML = "";
     document.getElementById("count").innerHTML = "Happy new year";
+
+    setTimeout(function(){
+        const div = document.getElementById("count");
+        div.style.color = "white";
+    },1500);
+
+    setTimeout(function(){
+        document.getElementById("count").innerHTML = "";
+    },5000);
+
   }
 }, 1000);
+
+
 </script>
