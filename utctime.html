@@ -1,23 +1,40 @@
 <style>
-    
     *{
+        -webkit-user-drag: none;
+        margin: 0;
+        user-select: none;
         color: white;
         background-color: black;
         text-shadow: 0 0px 10px rgba(255, 255, 255, 0.2);
         font-family: 'Poppins', sans-serif;
     }
 
-    html body{
-        margin: 0px;
+    .title{
+        text-align: center;
+    }
+    .countdownbox{
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
     }
     .count{
+        margin: 0px;
         font-size: 90px;
     }
-
+    .exit{
+        border: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-size: 20px;
+        border-bottom-right-radius: 3px;
+    }
 
 </style>
 <!DOCTYPE HTML>
@@ -29,44 +46,11 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="description" content="Count down 2023 use your device time">
 </head>
+<a href="index.html"><button class="exit"><</button></a>
 <body>
-<h1 class="title" id="title">Count Down 2023</h1>
-<h1 class="count" id="count"></h1>
+<div class="countdownbox">
+    <h1 class="title" class="center" id="title">Count Down 2023</h1>
+    <h1 class="count" class="center">It broken🛠️</h1>
+</div>
 </body>
 </html>
-
-<script>
-
-var countDownDate = new Date("jan 1, 2023 0:0:0").getTime();
-
-var x = setInterval(function() {
-
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.getElementById("count").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
-  if (distance < 0) {
-    clearInterval(x);
-    document.body.style.backgroundColor = "black";
-    document.getElementById("title").innerHTML = "";
-    document.getElementById("count").innerHTML = "Happy new year";
-
-    setTimeout(function(){
-        const div = document.getElementById("count");
-        div.style.color = "white";
-    },1500);
-
-    setTimeout(function(){
-        document.getElementById("count").innerHTML = "";
-    },5000);
-
-  }
-}, 1000);
-
-
-</script>
